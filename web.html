@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matias App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Fondo arcoíris animado */
+            background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+            background-size: 400% 400%;
+            animation: rainbowBackground 8s ease infinite;
+            overflow: hidden;
+        }
+
+        @keyframes rainbowBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .card {
+            position: relative;
+            padding: 60px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            border: 3px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            text-align: center;
+            animation: flotar 3s ease-in-out infinite;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        h1 {
+            font-size: 45px;
+            color: white;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.4);
+            font-weight: 900;
+        }
+
+        /* Botón Estilizado */
+        .btn-gay {
+            padding: 20px 40px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+            background: #ff007f; /* Rosa fuerte */
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            text-transform: uppercase;
+        }
+
+        .btn-gay:hover {
+            transform: scale(1.1) rotate(2deg);
+            background: #ff4da6;
+            box-shadow: 0 15px 30px rgba(255, 0, 127, 0.4);
+        }
+
+        .btn-gay:active {
+            transform: scale(0.9);
+        }
+
+        @keyframes flotar {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Decoración Arcoíris inferior */
+        .rainbow-footer {
+            height: 12px;
+            width: 100%;
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-bottom-left-radius: 27px;
+            border-bottom-right-radius: 27px;
+        }
+
+        /* Estilo para el mensaje final */
+        .mensaje-final {
+            color: #fff;
+            font-size: 50px;
+            font-weight: bold;
+            text-shadow: 0 0 20px #fff;
+            animation: aparecer 1s ease-out;
+        }
+
+        @keyframes aparecer {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card" id="mainCard">
+        <div id="content">
+            <h1>Matias gey y wekereque</h1>
+            <button class="btn-gay" onclick="salirDelCloset()">
+                Presiona si eres gey
+            </button>
+        </div>
+        <div class="rainbow-footer"></div>
+    </div>
+
+    <script>
+        function salirDelCloset() {
+            // Reemplaza el contenido de la tarjeta por el nuevo título
+            document.getElementById('content').innerHTML = `
+                <h1 class="mensaje-final">🌈 ¡Ya saliste del closet! 🌈</h1>
+                <p style="color:white; font-size: 20px;">Felicidades Matias</p>
+            `;
+            
+            // Aumentar la velocidad del fondo para que sea más festivo
+            document.body.style.animationDuration = '2s';
+        }
+    </script>
+
+</body>
+</html>
